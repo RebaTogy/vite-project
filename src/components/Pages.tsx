@@ -45,11 +45,11 @@ function Message() {
           <label>
             <input type="checkbox"
               checked={item.completed}
-              onChange={() =>
-                setItems(
-                  items.map((task) =>
+              onChange={(e) =>
+                setItems(prevItems =>
+                  prevItems.map((task) =>
                     task.id === item.id
-                      ? { ...task, completed: !task.completed }
+                      ? { ...task, completed: e.target.checked }
                       : task
                   )
                 )
